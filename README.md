@@ -4,8 +4,6 @@ Filterable Search Dashboard
 
 Filterable Search Dashboard is a Django app to filter data from DB sqlite3.
 
-Detailed documentation is in the "docs" directory.
-
 Quick start
 -----------
 
