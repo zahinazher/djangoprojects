@@ -1,0 +1,48 @@
+<table class="table table-head-bg-success table-striped table-hover">
+  <thead>
+    <tr>
+      <th scope="col">GEO</th>
+      <th scope="col">Instance</th>
+      <th scope="col">Niche</th>
+      <th scope="col">KW List</th>
+      <th scope="col">Clicks</th>
+      <th scope="col">Est. $</th>
+      <th scope="col">Details</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for item in adstats %}
+    <tr>
+      <td>{{item.geo_location}}</td>
+      <td>{{item.instance_id}}</td>
+      <td>{{item.niche}}</td>
+      <td>{{item.keyword}}</td>
+      <td>{{item.clicks}}</td>
+      <td>{{item.est_amt}}</td>
+      <td><a href="" class="details-link" data-id="{{ item.id }}">See Log</a></td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+<script>
+  $(document).ready(function(){
+    $(".details-link").click(function(e){
+      e.preventDefault();
+      var link = $(this);
+      var id = link.attr('data-id');
+      
+      $.ajax({
+        type: 'GET',
+        url: '/details/'+id,
+        success: function (data) {
+          $("#detail-container").html(data.html);
+        },
+        error: function(error){
+          console.log(error);
+        }
+      });
+    })
+  })
+     
+  </script>

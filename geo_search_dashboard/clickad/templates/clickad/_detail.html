@@ -1,0 +1,25 @@
+<div class="card">
+  <div class="card-body">
+    <table class="table table-head-bg-success table-striped table-hover">
+      <thead>
+        <tr>
+          <th>Time</th>
+          <th>KW</th>
+          <th>Domain(clicked)</th>
+          <th>IP(Proxy)</th>
+          <th>Est.$</th>
+        </tr>
+      </thead>
+      <tbody>
+       {% for data in data_list %}
+       <tr>
+        <td>{{ data.date_time }}</td>
+        <td>{{ data.keyword }}</td>
+        <td>{{ data.domain }}</td>
+        <td>{{ data.ip }}</td>
+        <td>{{ data.volume }}</td>
+      </tr>{% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>
